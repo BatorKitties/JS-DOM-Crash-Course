@@ -6,7 +6,7 @@
   <li>Yellow</li>
   <li>Magenta</li>
   <li>Cyan</li>
-</ul>;
+</ul>
 
 //this is out html colors list with the id of colors and the class of primary
 
@@ -112,3 +112,9 @@ const colors1 = document.querySelectorAll('li'); //this will get all the li tags
 //thats what its doing
 
 //now if i was to get every single car instead i would simply change the colors to cars in the getElementById parenthesis
+
+const colorsList7 = document.getElementById('cars'); //this will get the cars id from the html
+
+//now going into the browsers console again we will see the 3 items in the node list once again
+
+//the constant colorsList and colors are named incorrectly but you get the point, whatever you pass through the parenthesis is what its going to be restricted to
