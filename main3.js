@@ -316,6 +316,75 @@ console.log(css2.parentElement.parentElement); //this will print the parent elem
 
 //with this one its much harder to understand what the developer is doing as opposed to just saying .closest and passing through the parentheses the class of card
 
+//were now going to have a look at the text content properties
+
+//this one is relatively straightfoward it allows you to get a elements text content
+
+//so as an example, the text content of this name div here
+
+//<div class="name" title="I am Adam Jones"> Adam Jones </div>
+
+//is gonna simply be Adam Jones
+
+//so lets go inside the javascript and we can see here we have a reference to the name getting by the class of name
+
+const theName2 = document.querySelector(".name"); //this will get the name class from the html
+
+// so if we do 
+
+console.log (theName2); //this will print the name in the console
+
+//were verifying that this is fine
+
+//back in the browser and we can see in the console we have the name so lets grab the text content string out of this name
+
+//we can simply call .textContent
+
+console.log(theName2.textContent); //this will print the text content in the console
+
+//back in the browser again we can see now its being logged out as Adam Jones
+
+//that is the text content of your element now some important things to note about the text content property
+
+//if you have html elements inside your div then theyre not gonna be picked up by this property
+
+//as an example, lets make the last name of Adam Jones so Jones a strong tag
+
+//<div class="name" title="I am Adam Jones"> Adam <strong>Jones</strong> </div>
+
+//nested Jones in a strong tag
+
+//if we go back into the browser we can see we get jones as bold, but we dont pick up that span tag in the javascript
+
+//so text content only cares about the text inside the element and its children in this case, jones
+
+//now the second thing to sort of worry about here or to consider yourself with here is that if you have whitespace inside your elements, thats going to be picked up
+
+//lets drop down and make Adamn Jones on a new line so like this
+
+//<div class="name" title="I am Adam Jones"> 
+//Adam Jones
+//</div>
+
+//so right here we have a line break, a new line 
+
+//we also have a bunch of tabs (spaces) before Adam Jones, then another line break
+
+//go back in the browser and we get Adam Jones in the console with all the whitespaces, tabs and line breaks
+
+//so its basically kept all of the whitespaces inside the text content
+
+//now if you really need to remove this extra whitespace, you can do so because of course, text content is gonna return you a string so you can simply call any string method
+
+//for example .trim, to remove that whitespace
+
+console.log(theName2.textContent.trim()); //this will print the text content in the console
+
+//go back in the browser and that whitespace has now been removed
+
+//so thats the text content property, another quick thing to mention is that you can also assign your text content to a new value 
+
+
 
 
 
