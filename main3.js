@@ -257,7 +257,7 @@ console.log(css.parentElement.parentElement.parentElement.parentElement); //this
 
 //lets do it again and now back in the browser console we get null so we can only go as far as getting the parent of the body and thats it
 
- //but i think its important to sort of highlight here, youve got the hierarchy and you can keep going up and up if you want to
+//but i think its important to sort of highlight here, youve got the hierarchy and you can keep going up and up if you want to
 
 
 
