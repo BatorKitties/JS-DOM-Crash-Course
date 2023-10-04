@@ -160,7 +160,7 @@ const items = skillsList.children; //this will get the children from the skillsL
 
 //if we instead of saying children, say querySelectorAll and then pass in the li
 
-const items1 = skillsList.querySelectorAll('li'); //this will get the li tags from the skillsList
+const items2 = skillsList.querySelectorAll('li'); //this will get the li tags from the skillsList
 
 //if we go back in the browser items is going to be equal to that node list of li's 
 
@@ -258,6 +258,64 @@ console.log(css.parentElement.parentElement.parentElement.parentElement); //this
 //lets do it again and now back in the browser console we get null so we can only go as far as getting the parent of the body and thats it
 
  //but i think its important to sort of highlight here, youve got the hierarchy and you can keep going up and up if you want to
+
+//next were going to cover the closest method
+
+//this ones important to understand because you will be using it in many scenarios
+
+//we have the same html as before 
+
+//in the javascript just like in the last lecture we will be selecting once again that list item that contains the text css
+
+const css2 = document.querySelector(".skills li:nth-of-type(2)"); //this will get the second li tag from the skillsList
+
+//the number after some of the names is because you cant have two variables with the same name
+
+//so were gonna go from the css list item and go up and retrieve the closest element with a class of skills, so what do i mean by closest?
+
+//im referring to the essentially, the closest parent in the hierarchy 
+
+//so were going to say
+
+console.log(css2.closest(".skills")); //this will print the closest element in the console
+
+//so your passing through here a css selector
+
+//if we go into the browser, we get the unordered list in the console
+
+//what were doing is were starting from the css <li>CSS</li> and were going up the parent so its only considering the body <body>, this card div <div class="card"> and the skills <ul class="skills">
+
+//its starting from the css, its finding the first element that matches the selector that you pass in, in this case its a class of skills (.skills)
+
+//now you might look at this and think, why dont you just call the .parentElement like before to get your parent? and yes you can do that but saying .closest is a lot cleaner 
+
+//its gonna also let you cleanly retrieve a grand parent in this case here as an example, the card
+
+//were gonna change the class of skills to the class of card instead so
+
+console.log(css2.closest(".card")); //this will print the closest element in the console
+
+//so now were gonna start from the css, we go up to the list and go up again to the card, getting us the card itself
+
+<div class="card">
+  <div class="name" title="I am Adam Jones">
+    Adam Jones
+  </div>
+  <ul class="card">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+</div>;
+
+//this is the card itself, everything in the class of card div
+
+//if you were to use the parentElement property you would end up doing
+
+console.log(css2.parentElement.parentElement); //this will print the parent element in the console
+
+//with this one its much harder to understand what the developer is doing as opposed to just saying .closest and passing through the parentheses the class of card
+
 
 
 
