@@ -384,6 +384,193 @@ console.log(theName2.textContent.trim()); //this will print the text content in 
 
 //so thats the text content property, another quick thing to mention is that you can also assign your text content to a new value 
 
+//next we will be learning on the updating elements with javascript dom
+
+//were gonna be using the exact same html as before 
+
+//so right here were going to focus on this div with a class of name
+
+//<div class="name" title="I am Adam Jones"> Adam Jones </div>
+
+//this lecture is going to cover the method which is called set attribute
+
+//as the name suggests, its going to allow us to update or change the value of an attribute on an html element
+
+//were gonna be focusing on the title attribute here
+
+//title = "I am Adam Jones"
+
+//inside the js were gonna simply update that attribute, so ive got the name elements preselected
+
+const theName3 = document.querySelector(".name"); //this will get the name class from the html
+
+//below this were gonna say
+
+theName3.setAttribute("title", "Hello, my name is Dom"); //this will set the attribute in the html
+
+//were passing through the firstly the name of the attribute to  change so were gonna say title, then the second argument is gonna be the new value so
+
+//theName3.setAttribute("title", "Hello, my name is Dom");
+
+//and because the html attribute only accepts strings, were gonna provide strings of course as our value here so you can set it to be a number like 1000, for example but it needs to be wrapped inside strings here because thats all html support
+
+//lets go inside the browser, hover over the name Adam Jones and we get Hello, my name is Dom instead of the previous title which said of course I am Adam Jones 
+
+//so weve successfully updated the attribute title for this element so you basically call that on the elements much like you do when your retrieving or getting an attribute
+
+//now one thing to note here is that you might see on many tutorials online, this is how people may want to update the class of an element 
+
+//going back to the html, were gonna go under the title tag and go inside the style tag
+
+//were gonna be making a different class called coffee and set a background color to brown
+
+//path: index3.html
+
+/*<title>Getting Data from Elements</title>
+  <style> 
+    .coffee {
+      background-color: brown;
+
+    }
+  </style> */
+
+  //now were gonna add this coffee class to the class name div, inside the js were gonna set attribute were gonna set the class attribute
+
+  theName3.setAttribute("class", "name coffee"); //this will set the attribute in the html
+
+  //so we take the original theName3.setAttribute("title", "Hello, my name is Dom"); and make this set to name and then coffee
+
+  //and if we go back into the browser, we get that brown color because we have both the name class and the coffee class on this div as can be seen in the console
+
+  //this is what some people might use online to update the class and apply some different CSS to an element
+
+  //and just to quickly show as well, a different technique for updating the class attribute might be to access it directly
+
+  //so certain attributes have a property counterpart an example of this is the class attribute
+
+  //were gonna say 
+
+  theName3.className = "name coffee"; //this will set the attribute in the html
+
+  //you can put className instead of setAttribute this will give the exact same results
+
+  //if we go back in the browser we get the same result, name and coffee on that class
+
+  //so this is just another way to update the class attribute on the element
+
+  //like i said only certain properties or certain attributes have this property equivalent and class is one of them
+
+  //next up weve got the style property so you can actually change the inline css styles of an element using js
+
+  //so if for example you are coding a game and your user wins that game, you can change their name to be green text instead or add a green background something like that
+
+  //you can do this programmatically using the javascript dom
+
+  //lets have a quick look at an example of doing something like that
+
+  //so we have here a reference to the last list item which contains the text javascript <li>JavaScript</li>
+
+  const javascript = document.querySelector(".skills").lastElementChild; //this will get the last element child from the skillsList
+
+  //now we can see here, im simply selecting this by grabbing the skills list and then saying .lastElementChild
+
+  //this is the property i wanted to throw in for you guys its an easy way to get a reference to the last element that is a child of this one here
+
+  document.querySelector(".skills") //this will get the skills class from the html
+
+  //so if i were to to now 
+
+  console.log(javascript); //this will print the javascript in the console
+
+  //go into the browser and we can see in the console we have the javascript list item and it will highlight the javascript in the browser when hovered over
+
+  //so thats a different way of getting an element, last element child
+
+  //now how do you add styles to the javascript list item?
+
+  //we very straightfoward were gonna say in here (delete the console.log)
+
+  //and say
+
+  javascript.style.color = "orange"; //this will set the style in the html
+
+  //you can specify any css inline style you want, but its gonna be done in camel case
+
+  //so color is a simple one were using first
+
+  //this right here is the css equivalent of saying color: orange;
+
+  //thats what your doing right here by running this javascript code
+
+  //now back into the browser and we get orange text for javascript
+
+  //if i inspect the list item in the console, you have this inline style which says color and then orange
+
+  //<li style="color: orange;"></li>
+
+  //so thats what thats doing right? your simply adding css inline styles
+
+  //inline styles are not recommended, you should always use a css file but this is just to show you that you can do this
+
+  //now what did i mean by camel case? if i go back in the js (here), lets say i wanna change the background color of the javascript list item to do something like black
+
+  //we will say
+
+  javascript.style.backgroundColor = "black"; //this will set the style in the html
+
+  //so changing color to background color (color with an uppercase C because its camel case) and do black
+
+  //now this right here is the same as saying background-color: black;
+
+  //so you want to convert your dashes to no dash, but use an uppercase for the next word
+
+  //so converting this dash format into camel case and this works for any css property with a dash, or most of them to my knowledge
+
+  //go back in the browser and we get that black on the element (the javascript list item) now its not actually the recommended way to style your elements using css, but its perfectly fine for if your just learning it or doing some sort of small project on the side
+
+  //if your working on a large project with many developers, its better to add different css classes instead of doing inline styling
+
+  //now a very important thing to also note about this technique here is, you can actually use this to remove some styling 
+
+  //what i mean by thus is if i go back into the index html, i want to then give my list item with a javascript a class i wanna say
+
+  //<li class="javascript">JavaScript</li> instead of just <li>JavaScript</li>
+
+  //this is so i can then style it using css inside the head
+
+  //so i have my style tag here and ill target the class of javascript
+
+  /* <style>
+    .javascript
+  </style> */
+
+  //so i want to change this list item to say a background color of red
+
+  /* <style>
+   .javascript {
+     background-color: red;
+   }
+  </style> */
+
+  //now lets go back in the browser and we can see due to the nature of css, the inline style applied by javascript is gonna take precedence over the style applied in the head
+
+  //but i can actually remove this background color without having to reassign it to be read
+
+  //so now we will say
+
+  javascript.style.backgroundColor = null; //this will set the style in the html
+
+  //so null is gonna simply clear that inline style and allow you to fall back to what you specified in the css
+
+  //back in the browser here and it goes back to red, the benefit of this right here is that 
+
+  //one you dont need to duplicate your code and have the color specified a red in both the javascript and the css, you know if your trying to reset it back to red
+
+  //the second benefit is if you dont actually know what the css has it set to then you can set it to null and basically clear and reverse this reassignment if that color
+
+  //thats adding inline styles using javascript
+
+
 
 
 
