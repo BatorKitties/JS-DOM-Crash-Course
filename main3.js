@@ -570,6 +570,53 @@ theName3.setAttribute("title", "Hello, my name is Dom"); //this will set the att
 
   //thats adding inline styles using javascript
 
+  //next htis lecture is gonna be super important because its going to be the first time where were actually updating and creating elements and deleting elements and doing something sort of big to the DOM
+
+  //so were gonna explore the inner html property, the inner html property allows ypu to update the html that is within another element
+
+  //so were gonna be focusing on this unordered list here with a class of skills
+
+    <ul class="skills">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    </ul>
+
+    //same html as before
+
+    //lets use js to update this list from a list of web development languages html,css,javascript 
+
+    //lets change it to a list of useful skills around the house so for example, washing the dishes, mowing the lawn, vaccuming
+
+    //inside here ive got a reference to the skills list 
+
+    const skillsList2 = document.querySelector(".skills"); //this will get the skills class from the html
+
+    //and we can change the html inside of it by saying
+
+    //skillsList2.innerHTML = 
+
+    //and then we can use a javascript and multi line string this is done using the back ticks on your keyboard  ` `
+
+    //these back ticks are going to allow us to use multi line strings
+
+    //and now were gonna simply provide an html string containing the new html
+
+    skillsList2.innerHTML = `
+    <li>Washing the dishes</li>
+    <li>Mowing the lawn</li>
+    <li>Vaccuming</li>
+    `;
+    //this will set the inner html in the html
+
+    //now if we go in the browser we have an entire new list as part of or any list of items for this unordered list of skills here
+
+    //so its that simple to provide a new html string in order to update html inside another element
+
+    //its very commonly used as well, youll see this a lot in javascript dom tutorials
+
+    //now its important to note that were actually replacing what html was previously inside of this, so there is a way to keep your existing html and we will look into that next
+
 
 
 
