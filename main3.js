@@ -617,8 +617,226 @@ theName3.setAttribute("title", "Hello, my name is Dom"); //this will set the att
 
     //now its important to note that were actually replacing what html was previously inside of this, so there is a way to keep your existing html and we will look into that next
 
+    //next were going to cover the insert adjacent html method
 
+    //this one here achieves a similar result or outcome to the previous inner html but this one allows you to inject html so you dont lose the existing html as part of your element
 
+    //this comes in handy when your doing things like adding new items to a list or updating the page with new data and things like that
 
+    //so as an example, lets add a new skill to the skills class unordered list (class="skills")
 
+    //lets make this skill java a different programming language, in the js we also got that skills list selected once again
 
+    const skillsList3 = document.querySelector(".skills"); //this will get the skills class from the html
+
+  //below this we will say
+
+    skillsList3.insertAdjacentHTML();
+
+ //then the first argument to this method is going to be the position to insert into so if i open up in the double quotes here ("")
+
+//this code is going to give me a list of options a common option is gonna be beforeend
+
+//so before end means lets insert some new html before the end of the parent or the skills list in this case
+
+//so we can say beforeend all lowercase, no spaces etc
+
+skillsList3.insertAdjacentHTML("beforeend");
+
+//a second argument now is gonna be the html so we can once again use those back ticks for the multi line string or i might actually just put this back to a regular string because we dont need to use multi lines here
+
+//its going to be a simple one list item so we can say li and inside provide java
+
+skillsList3.insertAdjacentHTML("beforeend", "<li>Java</li>");
+
+//so insert this html before the end of this skills list
+
+//back in the browser and we get java added to that list, in the html we can now see we have that extra list item down here
+
+//lets explore a few more options for this first argument here, you can also say afterend
+
+//after end means insert this html after the end of the ul or the skills list so it will be put below the whole ul but before the closing div tag
+
+/* </ul>
+down here
+</div> */
+
+//so because you cant have a list item outside of a list, im gonna make a strong tag instead and say something like
+
+skillsList3.insertAdjacentHTML("afterend", "<strong>Here I am!</strong>");
+
+//i go back in the browser and we get Here I am! right under the list items on the web
+
+//you can also do beforebegin using the strong tag with the text here i am!
+
+//go back in the browser and its before the beginning of the list so on top between the div if name and the unordered list 
+
+//you can also do afterbegin with that strong tag, and this is gonna be essentially as the first element injected under the ul class="skills" and before the list items so
+
+/* <ul class="skills">
+//injected here
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</div> */
+
+//but i wont be showing that one because i need to put it back to unordered or to a list item but anyway you get the point 
+
+//you have those four options to choose from for insertAdjacentHTML and again this is very useful for updating the ul when new data comes in from the server or your user does something somewhere else in the page and you want to update something else in a different area
+
+//in this next lecture were gonna revisit the text content property
+
+//a few lectures ago we learnt about how the text content property can be used to retrieve the text content as part of an element 
+
+//but in this one im gonna be showing you how you can update that text content its gonna work in the same way as inner html does
+
+//were gonna focus on the list item which says HTML <li>HTML</li> using the same html as before
+
+//lets change it to be a different programming language in the js ive simply selected the first li as part of the skills unordered list to give us the html list item
+
+const html = document.querySelector(".skills li"); //this will get the first li tag from the skillsList
+
+//now we can say
+
+html.textContent = "Ruby"; //this will set the text content in the html
+
+//this will change it to be Ruby as my other programming language
+
+//go in the browser here and we get Ruby instead of HTML
+
+//you can use his to update certain Html elements when your user inputs some data as an example or you can update the text to say, congragulations, you wont this game, or whatever it might be
+
+//now the important difference between text content and the inner html is the fact that text content does not parse the html 
+
+//what that means is if i was to go inside the ("") with Ruby inside and provide some html as part of this string to say something like <strong>Ruby</strong>
+
+html.textContent = "<strong>Ruby</strong>"; //this will set the text content in the html
+
+//this right here, we might expect it to display Ruby as bold but if we go back in the browser we actually get the html tag printed to us as part of this list item
+
+//if i was to compare this to 
+
+html.innerHTML = "<strong>Ruby</strong>"; //this will set the inner html in the html
+
+//and go back in the browser its gonna show up and be bold and that is the key difference between those two properties
+
+//inner html is more useful for when your updating the ui with new changes if something happens but text content is useful for when you retrieve more data from your api or wherever your getting data from and you want to update a label somewhere or a value somewhere
+
+//its much better to use text content because you dont get that html parsing
+
+//if for example one of your users has an open bracket or a greater than sign in their username
+
+//so if for example my name is Dom like this
+
+html.textContent = "> Dom";
+
+//this greater than sign is going to appear in your username field as an example
+
+//if we use inner html so 
+
+html.innerHTML = "> Dom";
+
+//in the browser we can see we get the same, while this does work technically this could be interpreted as html
+
+//another example might be, lets say my username contains em for emphasized text
+
+html.innerHTML = "<em> Dom";
+
+//go back in the browser and we can see it becomes emphasized 
+
+//so that right there is a potential security issue and its also just, unneeded or unwanted because you dont want the characters inside a valid peice of data affecting what gets displayed on your page
+
+//that is the text content property you can get, but you can also set text content
+
+//next we will be focusing on the class list property as weve seen before
+
+//you can use the set attribute method or the class name to update an elements class, but theres actually a better wat to do it and that is using class list
+
+//which allows you to manage the classes on your element so you can add, remove, check if it exists you can toggle and so on
+
+//these are all powerful and the main reason why a class list is available is because the class attribute has significance in the DOM
+
+//classes are typically used to add different css roles to an element so if your doing a user interface and you wanna update the ui when certain things change or something like that
+
+//you may want to add, remove classes to certain elements to apply those styling changes
+
+//we have the same scenario as previous lectures and same html and ive also included that class of coffee with a background of brown 
+
+//were gonna be using class list to add that coffee class to the Adam Jones div like we did a few lectures ago but this time using class list
+
+//inside here, i selected the name element 
+
+const theName4 = document.querySelector(".name"); //this will get the name class from the html
+
+//below this we will say
+
+theName4.classList.add("coffee"); //this will add the class in the html
+
+//this is going to add your class of coffee, if we go in the browser we can see we get that brown background on the name and inside the html we have the name class as well as the coffee class which was added programmatically using javascript (class="name coffee")
+
+//now whys this better than using set attribute or class name property? its better because you dont need to append the existing class list when your adding a new one
+
+//so if i wanted to add coffee to the name without using class list, i might say something like,
+
+theName4.className = "name coffee"; //this will add the class in the html
+
+//we can see here, i had to remember or know what the existing class was in order to add a new one, i dont wanna lose the existing one
+
+//if i was to say
+
+theName4.className = "coffee"; //this will add the class in the html
+
+//like this im gonna lose the class of name, by doing this i need to remember what the previous one was or i need to basically say class list +=, then say space to add or append this new string to the existing one
+
+//if we go back in the browser in the console we get name and coffee and thats because of the += here
+
+theName4.className += " coffee"; //this will add the class in the html theres an added space before the coffee
+
+//but i had to say space, the space here and then more spaces for more classes down the line as an example something like this
+
+theName4.className += " coffee moreClasses asAnExample"; //this will add the class in the html
+
+//it gets a little messy and thats why using class list here is much neater and you can also provide multiple if you want to for example we can say
+
+theName4.classList.add("coffee", "berry", "apple"); //this will add the class in the html
+
+//to add coffee, berry and apple to the class list of name
+
+//go back in the browser and now we have all those seperate classes on your class, class = "name coffee berry apple" (on your class attribute)
+
+//what other things can you do with class list? well, you can also do things like remove classes
+
+//i can say
+
+theName4.classList.remove("name"); //this will remove the class in the html
+
+//and ill remove the class of that name that is there by default in the html, (<div class = "name")
+
+//go back in the browser and we can see in the inspector we no longer have that anme class on that div which will remove everything that was applied to that class so the coffee, berry and apple
+
+//you can also check if a class exists or a token exists, we can say
+
+console.log(theName4.classList.contains("berry")); //this will check if the class exists in the html
+
+//does berry appear in the class list for this name element, yes or no?
+
+//go back into the browser and we can see we get false since we removed the name classes items so the coffee, berry and apple
+
+//lets explore one last thing for class list and that is gonna be toggle were gonna drop the console.log we made and now say
+
+theName4.classList.toggle("coffee"); //this will toggle the class in the html
+
+//(were gonna do this in the web console instead of the js, so in here but show it in here as an example of what to do in the web)
+
+//press enter, its gonna dd that class (say true) lets now toggle again so call toggle again say
+
+theName4.classList.toggle("coffee"); //this will toggle the class in the html
+
+//its gonna remove that class (say false) this right here comes up quite a bit and its useful for things like navigation bars
+
+//lets say when the user clicks on the navigation button, its gonna open up a menu, you press the button again, its gonna toggle again and remove that class
+
+//so thats an example of the toggle
+
+//and i also encourage you to do the name class list and explore all of the different methods and properties you have available to you on that class list
