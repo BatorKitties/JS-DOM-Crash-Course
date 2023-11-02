@@ -840,3 +840,6 @@ theName4.classList.toggle("coffee"); //this will toggle the class in the html
 //so thats an example of the toggle
 
 //and i also encourage you to do the name class list and explore all of the different methods and properties you have available to you on that class list
+
+
+                                 
